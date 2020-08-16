@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'StudentController@selectSubject');
 Route::get('/home', 'StudentController@selectSubject')->name('home');
 
+Route::get('login/kakao', 'Auth\LoginController@redirectToProvider');
+Route::get('login/kakao/callback', 'Auth\LoginController@handleProviderCallback');
+
 Route::get('/select/{subject}', 'StudentController@selectTest');
 Route::get('/solve/{subject}/{test}/{question}', 'StudentController@solveQuestion');    // 제거 요망
 Route::get('/try_test/{subject}/{test}/{time}', 'StudentController@tryTest');
